@@ -36,12 +36,14 @@ https://github.com/user-attachments/assets/e6778911-5606-472c-a8b0-f3421c85feb9
 
 
 ## 🔥 Update Log
+- [2025/8/18] 📢 📢 The codes of "Automatic Evaluations" for evaluation are released.
 - [2025/5/6] 📢 📢  [FlexiAct](https://huggingface.co/shiyi0408/FlexiAct) is released, a flexible action transfer framework in heterogeneous scenarios.
 - [2025/5/6] 📢 📢  [Our traning data](https://huggingface.co/datasets/shiyi0408/FlexiAct) are released.
 
 ## 📋 TODO
 - [ ] Release the instructions for Windows
 - [ ] Update the gradio demo's instructions
+- [x] Update the code of "Automatic Evaluations"
 - [x] Release training and inference code
 - [x] Release [FlexiAct checkpoints](https://huggingface.co/shiyi0408/FlexiAct) (based on CogVideoX-5B)
 - [x] Release [Traning data](https://huggingface.co/datasets/shiyi0408/FlexiAct).
@@ -262,6 +264,30 @@ You can animate your target images with pretrained FAE checkpoints:
 ```
 bash scripts/inference/Inference.sh
 ```
+</details>
+
+<details>
+<summary><b>Evaluation 📈</b></summary>
+
+We provide four different metric-based evaluation codes in the `eval` folder: `Motion Fidelity, Appearance Consistency, Temporal Consistency, Text Similarity`.
+
+`Appearance Consistency, Temporal Consistency`: modify `target_directory` in the code to your output video folder and run.
+
+`Text Similarity`: modify `target_directory` in the code to your output video folder and change the csv path to the one containing prompts, then run.
+
+`Motion Fidelity`: we adopt [CoTracker](https://github.com/facebookresearch/co-tracker ) to evaluate the Motion Fidelity between the generated video and the original video. First, you need to set up the dependencies required by CoTracker following the instructions in `eval/motion_fidelity/co-tracker/README.md`. 
+Then execute:
+```
+cd eval/motion_fidelity
+git clone https://huggingface.co/shiyi0408/cotracker_ckpt_for_FlexiAct
+mv cotracker_ckpt_for_FlexiAct checkpoints
+```
+to download the necessary checkpoint.
+
+Next, in `eval/motion_fidelity/configs/motion_fidelity_score_config.yaml`, change the paths of the generated and original videos.
+
+Finally, use the example code in `eval/motion_fidelity/motion_fidelity.py` to evaluate the Motion Fidelity between the generated video and the original video.
+
 </details>
 
 
