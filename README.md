@@ -294,10 +294,11 @@ Finally, use the example code in `eval/motion_fidelity/motion_fidelity.py` to ev
 ## 🤝🏼 Cite Us
 
 ```
-@article{zhang2025flexiact,
-  title={FlexiAct: Towards Flexible Action Control in Heterogeneous Scenarios},
+@inproceedings{zhang2025flexiact,
+  title={Flexiact: Towards flexible action control in heterogeneous scenarios},
   author={Zhang, Shiyi and Zhuang, Junhao and Zhang, Zhaoyang and Shan, Ying and Tang, Yansong},
-  journal={arXiv preprint arXiv:2505.03730},
+  booktitle={Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Conference Papers},
+  pages={1--11},
   year={2025}
 }
 ```
